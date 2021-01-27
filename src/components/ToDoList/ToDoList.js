@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
-import ListCom from "./ListCom";
+import ListCom from "../ListCom/ListCom";
 import  "./ToDoList.css";
 
 const ToDoList = () => {
@@ -9,6 +9,7 @@ const ToDoList = () => {
     const [item, setItem] = useState("");
     
     const [newItem,setNewItem] = useState([]);
+
     const itemEvent = (event) =>
     {
         setItem(event.target.value)
@@ -23,7 +24,6 @@ const ToDoList = () => {
 
     return (
         <>
-        <h1>Bismillah home ToDoList</h1>
         <div className="main_div">
             <div className="center_div">
                 <br/>

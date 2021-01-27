@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
+import "./ListCom.css";
 
 const ListCom = (props) => {
     const [line,setLine] = useState(false);
