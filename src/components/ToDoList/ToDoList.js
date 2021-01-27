@@ -29,13 +29,14 @@ const ToDoList = () => {
                 <br/>
                 <h1 className = "h1-title">ToDoList</h1>
                 <br/>
+                <Button className="newBtn" onClick= {listOfItems}>
+                    <AddIcon></AddIcon>
+                </Button>
                 <input type="text" value ={item}
                     placeholder = "Add an Items"
                     onChange = {itemEvent}
                 />
-                <Button className="newBtn" onClick= {listOfItems}>
-                    <AddIcon></AddIcon>
-                </Button>
+               
 
         <br/>
         <ol>
