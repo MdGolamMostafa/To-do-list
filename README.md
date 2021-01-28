@@ -4,7 +4,7 @@
 
 ## Technoloy used:
 
-React/
-Redux/
-javaScript
+--React
+--Redux
+--javaScript
 
