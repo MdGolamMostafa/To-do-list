@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 // import { BrowserRouter as useLocation } from 'react-router-dom';
 import FadeLoader from "react-spinners/FadeLoader";
@@ -19,14 +19,13 @@ const initUser = {
     errors: {}
 }
 
-
-
 const Login = () => {
     const history = useHistory();
-    // const location = useLocation();
+    const location = useLocation();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    // let { from } = location.state || { from: { pathname: "/" } };
+    let { from } = location.state || { from: { pathname: "/" } };
+
     const [loading, setLoading] = useState(false)
     const [newUser, setNewUser] = useState(true)
     const [userInfo, setUserInfo] = useState({ ...initUser });
@@ -48,7 +47,7 @@ const Login = () => {
                 setUserInfo({ ...userInfo, errors: res })
             } else {
                 setLoggedInUser({...res})
-                // history.replace(from)
+                history.replace(from)
             }
             })
         }
@@ -62,7 +61,7 @@ const Login = () => {
                 setUserInfo({ ...userInfo, errors: res })
                 } else {
                 setLoggedInUser({...res})
-                // history.replace(from)
+                history.replace(from)
                 }
             })
         }
@@ -78,7 +77,7 @@ const Login = () => {
             setUserInfo({ ...userInfo, errors: res })
             } else {
             setLoggedInUser({...res})
-            // history.replace(from)
+            history.replace(from)
             }
         })
     }
@@ -91,7 +90,7 @@ const Login = () => {
 
             } else {
             setLoggedInUser({...res})
-                // history.replace(from)
+                history.replace(from)
             }
         })
 
@@ -124,20 +123,23 @@ const Login = () => {
 
 
     return (
-        <Container className="pr-0 pt-5">
+        <Container className="pr-0 pt-5 background-color-field">
           <Row>
             <Col sm={8} className="m-auto" xl={6} md="8">
               <Card>
                 <Card.Body>
-                  <h2 className="py-1">{newUser ? 'Create an account' : 'Login'}</h2>
+                  <h2 className="py-1 text-center">{newUser ? 'Create an account' : 'Login'}</h2>
                   <Form autoComplete="off" onSubmit={submitHandler}>
                     {newUser && (
+
                       <InputItem value={firstName}
-                        onChangeHandler={onChangeHandler}
-                        error={errors.firstName}
-                        name="firstName"
-                        customClass="loginInput" autoFocus
-                        placeholder="First Name" />
+                          onChangeHandler = {onChangeHandler}
+                          error={errors.firstName}
+                          name="firstName"
+                          customClass="loginInput" autoFocus
+                          placeholder="First Name" 
+                        />
+
                     )}
                     {newUser && (
                       <InputItem value={lastName}
@@ -145,7 +147,9 @@ const Login = () => {
                         error={errors.lastName}
                         name="lastName"
                         customClass="loginInput"
-                        placeholder="Last Name" />
+                        placeholder="Last Name" 
+
+                        />
                     )}
                     <InputItem value={email}
                       onChangeHandler={onChangeHandler}
@@ -154,13 +158,15 @@ const Login = () => {
                       customClass="loginInput"
                       type="email"
                       placeholder="Email" />
+                      
                     <InputItem value={password}
-                      onChangeHandler={onChangeHandler}
-                      error={errors.password}
-                      name="password"
-                      type="password"
-                      customClass="loginInput"
-                      placeholder="Password" />
+                        onChangeHandler={onChangeHandler}
+                        error={errors.password}
+                        name="password"
+                        type="password"
+                        customClass="loginInput"
+                        placeholder="Password"
+                      />
                     {newUser && (
                       <InputItem value={confirmPassword}
                         onChangeHandler={onChangeHandler}
