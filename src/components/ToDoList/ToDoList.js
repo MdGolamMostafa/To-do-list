@@ -5,23 +5,18 @@ import ListCom from "../ListCom/ListCom";
 import  "./ToDoList.css";
 
 const ToDoList = () => {
-
     const [item, setItem] = useState("");
-    
     const [newItem,setNewItem] = useState([]);
-
     const itemEvent = (event) =>
     {
         setItem(event.target.value)
     }
-
     const listOfItems = () => {
         setNewItem ((prevValue) => {
             return [...prevValue,item];
         });
         setItem("");
     }
-
     return (
         <>
         <div className="main_div">
@@ -36,7 +31,6 @@ const ToDoList = () => {
                     placeholder = "Add an Items"
                     onChange = {itemEvent}
                 />
-
 
         <br/>
         <ol>

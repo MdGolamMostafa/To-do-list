@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useHistory, useLocation } from "react-router-dom";
 
-// import { BrowserRouter as useLocation } from 'react-router-dom';
 import FadeLoader from "react-spinners/FadeLoader";
 import handleError from './ErrorHandler';
 import InputItem from './InputItem';
@@ -105,11 +104,7 @@ const Login = () => {
         console.log('form login');
     }, [])
     const { firstName, lastName, email, password, confirmPassword, errors } = userInfo;
-    // if(loggedInUser){
-    //   return <Redirect to ='/'/>
-    // }
-
-
+    
     if (loading) {
         return (
         <div className="sweet-loading">
